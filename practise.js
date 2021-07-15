@@ -1,76 +1,59 @@
-// function expression
+class User {
+    email;
+  
+    constructor(email) {
+      this.email = email;
+    }
+  
+    get email() {
+      return this.email;
+    }
+  
+    set email(newEmail) {
+      this.email = newEmail;
+    }
+  }
 
-// const getSum = function () {
-//     console.log(arguments)
-//     let total = 0;
-//     for (let element of arguments) {
-//         total += element;
-//     }
-//     return total;
-// }
 
-// console.log(getSum(1, 2, 4, 6, 7))
-// ____________________________________
-// function declaration
 
-// function getSum() {
-//     console.log(arguments)
-//     let total = 0;
-//     for (let element of arguments) {
-//         total += element;
-//     }
-//     return total;
+
+  class Admin extends User {
+    // Пиши код ниже этой строки
+  
+    static AccessLevel = {
+      BASIC: 'basic',
+      SUPERUSER: 'superuser'
+    };
+  
+    accessLevel;
+    blacklistedEmails;
+    constructor({ email, accessLevel, blacklistedEmails=[]}) {
+      super(email);
+      this.accessLevel = accessLevel;
+      this.blacklistedEmails = blacklistedEmails;
+    }
     
-// }
-// console.log(getSum(1, 2, 4, 6, 7))
-// ___________________________________
-// arrow function
+    blacklist(email) {
+    this.blacklistedEmails.push(email)
+    }
 
-// const getSum = (...all) => {
+    isBlacklisted(email) {
+        
+        return this.blacklistedEmails.includes(email);
     
-//     let total = 0;
-//     for (let element of all) {
-//         total += element;
-//     }
-//     return total;
-// }
-
-// console.log(getSum(1, 2, 4, 6, 7))
-// _____________________________________
-
-// callback
-
-// const aFn = function (massage, callback) {
-//     console.log(massage);
-//     callback(100)
-// }
-
-
-
-// const bFn = function (value) {
-//     console.log(`Im call back funktion`, value)
-// }
-
-// aFn("dick", bFn);
-// ____________________________________________
-
-// const doMath = function (a, b, callback) {
-//     const result = callback(a, b);
-//     console.log(result)
-// }
-
-// const add = function (x, y) {
-//  return x + y
-// }
-
-// doMath(5, 7, add)
-
-// літерал функції, щоб не оголошувати її в змінну
-
-// const doMath = function (a, b, callback) {
-//     const result = callback(a, b);
-//     console.log(result)
-// }
-
-// doMath(5, 7, function (x, y) {
-//     return x + y})
+    }
+  
+    // Пиши код выше этой строки
+  }
+  
+  const mango = new Admin({
+    email: 'mango@mail.com',
+    accessLevel: Admin.AccessLevel.SUPERUSER
+  });
+  
+  console.log(mango.email); // mango@mail.com
+  console.log(mango.accessLevel); // superuser
+  mango.blacklist('poly@mail.com');
+  console.log(mango.blacklistedEmails); // 'poly@mail.com'
+  console.log(mango.isBlacklisted('mango@mail.com')); //  false
+  console.log(mango.isBlacklisted('poly@mail.com')); // true 

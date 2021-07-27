@@ -1,5 +1,4 @@
-const users = 
-[
+const users = [
   {
     name: 'Moore Hensley',
     email: 'moorehensley@indexia.com',
@@ -7,8 +6,7 @@ const users =
     friends: ['Sharron Pace'],
     isActive: false,
     balance: 2811,
-    gender: 'male',
-    age: 37
+    gender: 'male'
   },
   {
     name: 'Sharlene Bush',
@@ -17,8 +15,7 @@ const users =
     friends: ['Briana Decker', 'Sharron Pace'],
     isActive: true,
     balance: 3821,
-    gender: 'female',
-    age: 34
+    gender: 'female'
   },
   {
     name: 'Ross Vazquez',
@@ -27,8 +24,7 @@ const users =
     friends: ['Marilyn Mcintosh', 'Padilla Garrison', 'Naomi Buckner'],
     isActive: false,
     balance: 3793,
-    gender: 'male',
-    age: 24
+    gender: 'male'
   },
   {
     name: 'Elma Head',
@@ -37,28 +33,25 @@ const users =
     friends: ['Goldie Gentry', 'Aisha Tran'],
     isActive: true,
     balance: 2278,
-    gender: 'female',
-    age: 21
+    gender: 'female'
   },
   {
     name: 'Carey Barr',
     email: 'careybarr@nurali.com',
     eyeColor: 'blue',
-    friends: ['Jordan Sampson', 'Eddie Strong'],
+    friends: ['Jordan Sampson', 'Eddie Strong', 'Adrian Cross'],
     isActive: true,
     balance: 3951,
-    gender: 'male',
-    age: 27
+    gender: 'male'
   },
   {
     name: 'Blackburn Dotson',
     email: 'blackburndotson@furnigeer.com',
     eyeColor: 'brown',
-    friends: ['Jacklyn Lucas', 'Linda Chapman'],
+    friends: ['Jacklyn Lucas', 'Linda Chapman', 'Adrian Cross', 'Solomon Fokes'],
     isActive: false,
     balance: 1498,
-    gender: 'male',
-    age: 38
+    gender: 'male'
   },
   {
     name: 'Sheree Anthony',
@@ -67,13 +60,28 @@ const users =
     friends: ['Goldie Gentry', 'Briana Decker'],
     isActive: true,
     balance: 2764,
-    gender: 'female',
-    age: 39
+    gender: 'female'
   }
-];
+]
 
-const getUsersWithFriend = (users, friendName) => {
-  return users.filter((user) => user.friends === friendName); 
-};
+console.table(users)
+
+// console.log(users.reduce((accum, user) => accum + user.balance, 0))
+
+// const userF = []
+console.log(users.forEach(user => {if(user.gender === 'female').reduce((accum, user) => accum + user.balance, 0) }));
+
+// console.log(users.flatMap(user => user.friends)
+// .filter((user, index, array) => array.indexOf(user) === index)
+// .sort((a, b) => a.localeCompare(b)));
+
+
+// const getSortedFriends = users => {
+//   return users. 
+// };
+
+// const friends = users.flatMap(user => user.friends);
+//  return friends.filter((user, index, array) => array.indexOf(user) === index);
+
 
 
